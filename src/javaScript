@@ -1,0 +1,17 @@
+
+const value = document.querySelectorAll(".pop_up_open");
+let value1 = document.querySelector(".main_pop_up")
+
+
+
+function help(){
+    value1.classList.remove(".main_pop_up");
+}
+
+function A(a){
+for(let b of value){
+    b.onclick = a;
+}
+}
+
+A(help);
