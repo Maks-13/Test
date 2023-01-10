@@ -1,10 +1,16 @@
-/* let cors = require('cors'); */
 require('./mysql.js');
+
 const fs = require('fs');
+
 const express = require("express");
+
+let cors = require('cors');
+
 // создаем приложение
 const app = express();
-/*  app.use(cors); */
+
+app.use(cors());
+
 // устанавливаем обработчик для маршрута "/"
 app.get("/", async (request, response) => {
     fs.readFile('../DataJson.json', 'utf8', (err, data) => {
