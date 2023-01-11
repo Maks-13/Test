@@ -5,25 +5,45 @@ let isTrue = true;
 let gen;
 
 
-point[0].addEventListener('click', function(gen){
-    let first = point[0].innerHTML;
-    gen = first;
-    meth2(gen);
+if(point.length > 0){
+for(let value of point){
+    value.addEventListener('mouseover', function(gen){
+        let popupName = value.getAttribute('href').replace('#', '');
+        const currentPopup = document.getElementById(popupName);
+        value.addEventListener('mousemove', function(){
+            
+        });
+        value.style.cursor = "pointer";
+        popupOpen(currentPopup);
+        let first = value.innerHTML;
+        gen = first;
+        meth2(gen);
+    });
+}
+}
+
+const popupCloseIcon = document.querySelector('.pop_up_close');
+const el = popupCloseIcon;
+el.addEventListener('click', function (e){
+    popupClose(el.closest('.pop_up'));
+    e.preventDefault();
 });
 
-point[1].addEventListener('click', function(gen){
-    let first = point[1].innerHTML;
-    gen = first;
-    meth2(gen);
-});
+function popupOpen(currentPopup){
+    if(currentPopup){
+        currentPopup.classList.add('open');
+        currentPopup.addEventListener('click', function(e){
+            if (!e.target.closest('.pop_up_content')){
+              popupClose(e.target.closest('.pop_up'));
+            }
+        })
+    }
+}
 
-point[2].addEventListener('click', function(gen){
-    let first = point[2].innerHTML;
-    gen = first;
-    meth2(gen);
-});
 
-
+function popupClose(popupActive){
+    popupActive.classList.remove('open');
+}
 
 function meth(b, ordinalValue){
     b.innerHTML = ordinalValue;
@@ -31,20 +51,13 @@ function meth(b, ordinalValue){
 
 
 function meth2(value){
-    
-if(value == "Товар"){
+if(value == "Порядковый номер"){
+    meth(value1, "Порядковый номер");
+}else if(value == "Товар"){
     meth(value1, "Товар");
 }else if(value == "Цена"){
     meth(value1, "Цена");
 }else{
-    meth(value1, "Количество на скаладе");
+    meth(value1, "Количество на складе");
 }
 }
-
-/* function createElementForInsert(){
-    let span = document.createElement('span');
-    span.className = "number";
-    span.innerHTML = ""; //получение первичного ключа из массива
-    B.before(span);
-}
- */

@@ -43,19 +43,17 @@ div > a {
 .main_form{
     width: auto;
     height: auto;
-    text-align: center;
 }
 
   .design_table{
    display: grid;
-   height: auto;
    position: relative;
-   gap: 10px;
-   margin-left: 20vw;
+   margin-left: 25vw;
    margin-right: 15vw;
+   gap: 10px;
    top: 15vw;
-   grid-template-columns: repeat(4, 200px);
-   grid-template-rows: repeat(3, 50px);
+   grid-template-columns: 200px 200px 200px 200px;
+   grid-template-rows: repeat(auto-fill, 50px);
 } 
 
 .design_table>div:nth-child(8n + 1),
@@ -80,12 +78,12 @@ div > a {
     overflow-x: hidden;
 }
 
-.pop_up:target{
+.pop_up.open{
     opacity: 1;
     visibility: visible;
 }
 
-.pop_up:target .pop_up_content{
+.pop_up.open .pop_up_content{
     transform: perspective(600px) translate(0px, 0px) rotateY(0deg);
     opacity: 1;
 
@@ -106,7 +104,7 @@ div > a {
     transition: all 0.8s ease 0s;
 }
 
- .pop_up_open:hover{
+ .pop_up_open{
     cursor: pointer;
 }  
 
@@ -149,20 +147,49 @@ div > a {
         position: relative;
         gap: 1px;
         justify-content: center;
-        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: repeat(3, 25px);
     }
     
-    .number{
-      display: none;
-    }
-
     div > a{
         font-size: 5px;
     }
 
+    .pop_up_body{
+        max-height: 200px;
+       display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.8s ease 0s; 
+    }
+
+    .pop_up_content{
+        position: relative;
+        width: 100px;
+        height: 100px;
+        padding: 10px 10px; 
+        transition: all 0.8s ease 0s;
+        transform: perspective(600px) translate(0px, -100%) rotateY(180deg);
+        opacity: 0;
+        background: linear-gradient(to top, #cce5f7, #79a3f7);
+    }
+    
+    .pop_up_title{
+        font-size: 7px;
+    }
+
+    .pop_up_lorem{
+        font-size: 5px;
+        line-height: 8px;
+    }
+
+    .pop_up_text{
+        font-size: 8px;
+    } 
+
     .elem{
-        
+        font-size: 4px;
+        text-align: center;
     }
 
     .specialStyle{
