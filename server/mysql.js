@@ -19,7 +19,11 @@ connection.connect(function(err){
     }
 })
 
-const sql = `SELECT * FROM kindsitems`;
+module.exports = {
+    connection
+};
+
+/* const sql = `SELECT * FROM kindsitems`;
 
 
 connection.query(sql, function(err, results) {
@@ -34,4 +38,4 @@ connection.query(sql, function(err, results) {
  
 connection.end();
 
-
+ */
