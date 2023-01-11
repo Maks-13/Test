@@ -48,8 +48,7 @@ div > a {
   .design_table{
    display: grid;
    position: relative;
-   margin-left: 25vw;
-   margin-right: 15vw;
+   justify-content: center;
    gap: 10px;
    top: 15vw;
    grid-template-columns: 200px 200px 200px 200px;
@@ -88,6 +87,7 @@ div > a {
     opacity: 1;
 
 } 
+
 .pop_up_area{
     position: absolute;
     width: 100%;
@@ -103,10 +103,6 @@ div > a {
     justify-content: center;
     transition: all 0.8s ease 0s;
 }
-
- .pop_up_open{
-    cursor: pointer;
-}  
 
 .pop_up_content{
     position: relative;
@@ -156,8 +152,7 @@ div > a {
     }
 
     .pop_up_body{
-        max-height: 200px;
-       display: flex;
+        display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.8s ease 0s; 
@@ -166,7 +161,6 @@ div > a {
     .pop_up_content{
         position: relative;
         width: 100px;
-        height: 100px;
         padding: 10px 10px; 
         transition: all 0.8s ease 0s;
         transform: perspective(600px) translate(0px, -100%) rotateY(180deg);
@@ -196,10 +190,9 @@ div > a {
         font-size: 4px;
     }
 
-    .picture{
-        height: 100%;
-        width: 100%;
+    .pop_up_close{
+        right: 1px;
+        top: 1px;
     }
-    
    
 }

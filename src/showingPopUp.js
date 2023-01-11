@@ -11,7 +11,6 @@ for(let value of point){
         let popupName = value.getAttribute('href').replace('#', '');
         const currentPopup = document.getElementById(popupName);
         value.addEventListener('mousemove', function(){
-            
         });
         value.style.cursor = "pointer";
         popupOpen(currentPopup);
