@@ -7,6 +7,7 @@ window.onload = function () {
 };
 
 function UpdateDisplay() {
+
     const url = 'http://localhost:3000';
     let response;
     let request = new XMLHttpRequest();
@@ -23,8 +24,8 @@ function UpdateDisplay() {
         if (this.readyState != 4) return;
 
         if (request.status != 200) {
-            alert(request.status + ":" + request.status);
-
+            alert("Request status: " + request.status);
+            
         } else {
             response = Array.from(JSON.parse(request.response));
             for (let obj of response) {
@@ -34,18 +35,19 @@ function UpdateDisplay() {
     }
 }
 
-function createHtmlForInsert(arr){
-let i = 0;
-const element  = document.querySelector('.design_table'); 
-const fragment = document.createDocumentFragment();
-const browsers = arr; 
+function createHtmlForInsert(arr){    
 
-browsers.forEach((browser) => {
-    const div = document.createElement('div');
-    div.textContent = browser;
-    div.className = 'elem';
-    fragment.appendChild(div);
-});
+    let i = 0;
+    const element = document.querySelector('.design_table');
+    const fragment = document.createDocumentFragment();
+    const browsers = arr;
 
-element.appendChild(fragment);
+    browsers.forEach((browser) => {
+        const div = document.createElement('div');
+        div.textContent = browser;
+        div.className = 'elem';
+        fragment.appendChild(div);
+    });
+
+    element.appendChild(fragment);
 };
